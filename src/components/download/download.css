@@ -1,0 +1,16 @@
+/*- Download */
+.download {
+padding: 60px 0;
+background: #312F30;
+}
+
+.download .container {
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+.download__title {
+font-weight: 500;
+font-size: 40px;
+}
