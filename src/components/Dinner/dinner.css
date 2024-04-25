@@ -1,0 +1,49 @@
+.container-Dinner {
+	box-sizing: border-box;
+	margin-top: 120px;
+	margin-bottom: 120px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 15px;
+
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.food-list__card-Dinner {
+	margin-top: 25px;
+}
+
+.food-list__card-Dinner:hover {
+	box-shadow: 0 0 15px #fff;
+	transition: 0.2s ease;
+}
+
+@media (max-width: 992px) {
+	.container-Dinner {
+		box-sizing: border-box;
+		padding: 0 90px;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+}
+
+@media (max-width: 430px) {
+	.food-list__card-Dinner {
+		margin-top: 120px;
+		margin-bottom: 120px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.container-Dinner {
+		box-sizing: border-box;
+
+		padding: 0 15px;
+
+		display: block;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+}

@@ -1,12 +1,11 @@
-import Feedback from "./components/feedback/Feedback";
+import Feedback from './components/feedback/Feedback'
 
 const Pages = () => {
-    return (
-        <>
-         <h1 style={{textAlign: 'center',}}>PAGES</h1>
-            <Feedback />
-        </>
-    );
+	return (
+		<>
+			<Feedback />
+		</>
+	)
 }
- 
-export default Pages;
+
+export default Pages

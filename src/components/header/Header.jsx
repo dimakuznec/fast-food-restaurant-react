@@ -1,26 +1,76 @@
-import './header.css';
-import logoImg from './../../images/icons/logo.png';
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
-const Header = () => {
-    return (
-        <header className="header">
-        <div className="container">
-            <img src={logoImg} alt="Логотип" className="header__logo"/>
+import logoImg from './../../images/icons/logo.png'
 
-            <nav className="header__nav">
-            <ul className="header__list">
-                <li><a className="active" href="Home">HOME</a></li>
-                <li><a href="Pages">PAGES</a></li>
-                <li><a href="OurOffer">OUR OFFER</a></li>
-                <li><a href="Pricing">PRICING</a></li>
-                <li><a href="Shop">SHOP</a></li>
-            </ul>
-            </nav>
+import './header.css'
 
-            <a href="#!" className="btn">Order now</a>
-        </div>
-    </header>
-    );
+function Header() {
+	const [burgerActive, setBurgerActive] = useState(false)
+	const [menuActive, setMenuActive] = useState(false)
+
+	const toggleMenu = () => {
+		setBurgerActive(!burgerActive)
+		setMenuActive(!menuActive)
+		if (menuActive) {
+			document.body.classList.add('lock')
+		} else {
+			document.body.classList.remove('lock')
+		}
+	}
+
+	return (
+		<div className='wrapper'>
+			<header className='header'>
+				<div className='container'>
+					<div className='header__body'>
+						<NavLink to='#' className='header__logo'>
+							<img src={logoImg} alt='logo' />
+						</NavLink>
+						<button
+							className={`header__burger ${burgerActive ? 'active' : ''}`}
+							onClick={toggleMenu}
+							type='button'
+							title='Open menu'
+						>
+							<span className='visually-hidden'>Open menu</span>
+							<span></span>
+						</button>
+						<nav className={`header__menu ${menuActive ? 'active' : ''}`}>
+							<ul className='header__list'>
+								<li>
+									<NavLink to='Home' className='header__link'>
+										HOME
+									</NavLink>
+								</li>
+								<li>
+									<NavLink to='/PAGES' className='header__link'>
+										PAGES
+									</NavLink>
+								</li>
+								<li>
+									<NavLink to='/OUROFFER' className='header__link'>
+										OUR OFFER
+									</NavLink>
+								</li>
+								<li>
+									<NavLink to='/PRICING' className='header__link'>
+										PRICING
+									</NavLink>
+								</li>
+								<li>
+									<NavLink to='/SHOP' className='header__link'>
+										SHOP
+									</NavLink>
+								</li>
+							</ul>
+						</nav>
+						<button className='button'>Order now</button>
+					</div>
+				</div>
+			</header>
+		</div>
+	)
 }
- 
-export default Header;
+
+export default Header

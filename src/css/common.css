@@ -1,76 +1,316 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600&display=swap');
 
-/*- Общие стили */
-
 body {
-margin: 0;
-font-family: 'Roboto', sans-serif;
-background-color: #1C1C1C;
-color: #fff;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	background-color: #1c1c1c;
+	color: #fff;
 }
 
 a {
-color: #fff;
-text-decoration: none;
+	color: #fff;
+	text-decoration: none;
 }
 
 p {
-margin: 0;
+	margin: 0;
 }
 
 p + p {
-margin-top: 15px;
+	margin-top: 15px;
 }
 
 ul {
-list-style: none;
-padding: 0;
-margin: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-font-weight: 500;
-margin: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 500;
+	margin: 0;
 }
 
 img {
-max-width: 100%;
+	max-width: 100%;
 }
 
 .container {
-box-sizing: border-box;
+	box-sizing: border-box;
 
-max-width: 1170px;
-margin-left: auto;
-margin-right: auto;
-padding: 0 15px;
+	max-width: 1170px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 15px;
 }
 
 .btn {
-display: flex;
-align-items: center;
-justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-width: 165px;
-height: 50px;
+	width: 165px;
+	height: 50px;
 
-font-weight: 500;
-font-size: 16px;
-text-transform: uppercase;
+	font-weight: 500;
+	font-size: 16px;
+	text-transform: uppercase;
 
-background: #F6762C;
-border-radius: 5px;
+	background: #f6762c;
+	border-radius: 5px;
 
-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	border: none;
+	color: #fff;
 }
 
 .btn:hover {
-opacity: 0.8;
+	opacity: 0.8;
 }
 
 .btn--small {
-width: 140px;
-height: 40px;
-font-size: 12px;
+	width: 140px;
+	height: 40px;
+	font-size: 12px;
+	border: none;
+	margin-inline: 40px;
 }
-  
+
+@media (max-width: 850px) {
+	.welcome .container {
+		position: relative;
+		z-index: 7;
+	}
+
+	.product .container {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 30px;
+		position: relative;
+		z-index: 7;
+	}
+
+	.product__card {
+		width: 400px;
+		min-height: 200px;
+		padding-left: 80px;
+	}
+
+	.welcome__title {
+		font-size: 30px;
+	}
+
+	.welcome__desc {
+		font-size: 14px;
+	}
+
+	.product__card:nth-child(even) {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	.order .container {
+		padding-right: 7px;
+	}
+}
+
+.mobile-overlay__product {
+	background-color: #8b8b8b;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1411764706),
+		0 1px 3px rgba(0, 0, 0, 0.1215686275), 0 2px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 14px;
+	padding: 32px 24px;
+	pointer-events: auto;
+	max-width: 609px;
+	height: 100%;
+	z-index: 30;
+	overflow: auto;
+}
+
+.visible-mobile__product {
+	margin-bottom: -390px;
+}
+
+/* .mobile__product {
+	margin-top: -480px;
+} */
+
+.buy-now-modal-class-button__product {
+	position: absolute;
+	top: 24px;
+	right: 24px;
+	background: transparent;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 38px;
+	height: 38px;
+	font-size: 22px;
+	padding: 0;
+	transition: all 0.25s ease;
+	color: #fff;
+	cursor: pointer;
+}
+
+.js-modal-close__product {
+}
+
+.black-svg {
+}
+
+.buy-now-form-modal-window-header__product {
+	font-family: var(--main-font-family);
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 1.2;
+	letter-spacing: -0.03em;
+	color: #fff;
+	text-align: center;
+	margin: 0 auto 32px;
+}
+
+.buy-now-form-modal-window-header-span__product {
+}
+
+.buy-now-form-modal-window-list__product {
+}
+
+.buy-now-form-modal-window-row__product {
+	width: 100%;
+	height: 85px;
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid rgba(243, 243, 243, 0.767);
+	border-radius: 15px;
+	background-color: var(--primary-text-color-theme-dark);
+	align-items: center;
+}
+
+.buy-now-img-prod-pic__product {
+}
+
+.buy-now-img-btg__product {
+	width: 96px;
+	height: 31px;
+	margin: auto 22px 18px;
+	border: 1px solid rgba(17, 17, 17, 0.1);
+	border-radius: 100px;
+	background-color: #f6762c;
+	color: #fff;
+}
+
+.buy-now-img-span__product {
+}
+
+.buy-now-modal-contact-form__product {
+}
+
+.buy-now-form-personal-information__product {
+}
+
+.buy-now-per-info__product {
+	font-family: var(--main-font-family);
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 1.22;
+	letter-spacing: 0.02em;
+	color: #fff;
+	text-align: start;
+	display: block;
+	margin-bottom: 8px;
+	margin-top: 18px;
+}
+
+.buy-now-per-info-name-div__product {
+}
+
+.buy-now-per-info-name-name__product {
+	width: 100%;
+	border: 1.5px solid rgba(243, 243, 243, 0.767);
+	filter: drop-shadow(0px 5.44492px 5.44492px rgba(0, 0, 0, 0.03));
+	border-radius: 8px;
+	outline: transparent;
+	background-color: transparent;
+	font-family: var(--color-orange);
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.21;
+	margin-top: 20px;
+	height: 66px;
+	padding-left: 24px;
+	font-size: 18px;
+	line-height: 1.22;
+}
+
+.buy-now-form-btn-submit__product {
+	border: none;
+	width: 117px;
+	height: 45px;
+	margin-top: 18px;
+	padding: 12px 28px;
+	background-color: #f6762c;
+	color: #fff;
+	border-radius: 100px;
+}
+
+.buy-now-form-btn-submit-span__product {
+}
+
+.buy-now-form-class-span__product {
+	color: #fff;
+}
+
+.buy-now-per-info-name-tel__product {
+	height: 66px;
+	font-size: 18px;
+	line-height: 1.22;
+	width: 83%;
+	border: 1.5px solid rgba(243, 243, 243, 0.767);
+	filter: drop-shadow(0px 5.44492px 5.44492px rgba(0, 0, 0, 0.03));
+	border-radius: 8px;
+	outline: transparent;
+	background-color: transparent;
+	font-family: var(--color-orange);
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.21;
+}
+
+.buy-now-contact-from-message__product {
+	position: relative;
+	width: 100%;
+	min-height: 91px;
+	font-family: var(--main-font-family);
+	font-size: 14px;
+	line-height: 1.21;
+	padding: 14px 178px 60px 18px;
+	border: 1.5px solid rgba(243, 243, 243, 0.767);
+	filter: drop-shadow(0px 5.44492px 5.44492px rgba(0, 0, 0, 0.03));
+	border-radius: 8px;
+	background-color: transparent;
+	outline: transparent;
+	resize: none;
+}
+
+.buy-now-per-info {
+	font-family: var(--main-font-family);
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 1.22;
+	letter-spacing: 0.02em;
+	color: #fff;
+	text-align: start;
+	display: block;
+	margin-bottom: 8px;
+	margin-top: 18px;
+}

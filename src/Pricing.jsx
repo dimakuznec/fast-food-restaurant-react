@@ -1,14 +1,13 @@
-import SectionOrder from "./components/SectionOrder/SectionOrder";
-import Product from "./components/product/Product";
+import SectionOrder from './components/SectionOrder/SectionOrder'
+import Product from './components/product/Product'
 
 const Pricing = () => {
-    return (
-        <>
-        <h1 style={{textAlign: 'center',}}>PRICING</h1>
-         <SectionOrder />
-         <Product />
-        </>
-    );
+	return (
+		<>
+			<SectionOrder />
+			<Product />
+		</>
+	)
 }
- 
-export default Pricing;
+
+export default Pricing

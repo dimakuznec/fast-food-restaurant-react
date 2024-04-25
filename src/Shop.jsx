@@ -1,12 +1,11 @@
-import Product from "./components/product/Product";
+import Product from './components/product/Product'
 
 const Shop = () => {
-    return (
-        <>
-         <h1 style={{textAlign: 'center',}}>SHOP</h1>
-            <Product />
-        </>
-    );
+	return (
+		<>
+			<Product />
+		</>
+	)
 }
- 
-export default Shop;
+
+export default Shop

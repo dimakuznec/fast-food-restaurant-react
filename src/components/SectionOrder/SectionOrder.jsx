@@ -1,38 +1,203 @@
-import './sectionOrder.css';
-import burger from './../../images/burger.png';
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion'
+import burger from './../../images/burger.png'
+import './sectionOrder.css'
+
+import React, { useState } from 'react'
 
 const textAnimation = {
-    hidden: {
-        x: -100,
-        opacity: 0,
-    },
-    visible: custom => ({
-        x: 0,
-        opacity: 1,
-        transition: { delay: custom * 0.2 }, 
-    }),
+	hidden: {
+		x: -100,
+		opacity: 0,
+	},
+	visible: custom => ({
+		x: 0,
+		opacity: 1,
+		transition: { delay: custom * 0.2 },
+	}),
 }
 
 const SectionOrder = () => {
-    return (
-        <motion.section className="order" initial="hidden" whileInView="visible">
-            <div className="container">
-                <motion.img custom={1} variants={textAnimation} src={burger} alt="" className="order__img"/>
+	const [formActive, setFormActive] = useState(false)
 
-                <div className="order__text">
-                <h3 className="order__title">Burger King</h3>
-                <p className="order__desc">Together with McDonald’s, 
-                  Burger King has grown to become synonymous with burgers in the US.
-                </p>
-                <span className="order__price">$6</span>
-                <span className="order__price order__price--old">$8</span>
-                <a href="#!" className="btn">Order now</a>
-                </div>
-            </div>
-        </motion.section>
-    );
+	const openForm = () => {
+		setFormActive(true)
+	}
+
+	const closeModal = () => {
+		setFormActive(false)
+	}
+
+	return (
+		<>
+			<motion.section className='order' initial='hidden' whileInView='visible'>
+				<div className='container'>
+					<motion.img
+						custom={1}
+						variants={textAnimation}
+						src={burger}
+						alt=''
+						className='order__img'
+					/>
+
+					<div className='order__text'>
+						<h3 className='order__title'>Burger King</h3>
+						<p className='order__desc'>
+							Together with McDonald’s, Burger King has grown to become
+							synonymous with burgers in the US.
+						</p>
+						<span className='order__price'>$6</span>
+						<span className='order__price order__price--old'>$8</span>
+						<button className='btn' onClick={openForm}>
+							Order now
+						</button>
+					</div>
+
+					{formActive && (
+						<dialog
+							className='mobile-overlay__product visible-mobile__product'
+							open
+						>
+							<button
+								type='button'
+								className='buy-now-modal-class-button__product js-modal-close__product'
+								onClick={closeModal}
+							>
+								<div className='black-svg' width='14' height='14'>
+									<samp>&#10006;</samp>
+								</div>
+							</button>
+							<h1 className='buy-now-form-modal-window-header__product'>
+								Order{' '}
+								<span className='buy-now-form-modal-window-header-span__product'>
+									now
+								</span>
+							</h1>
+
+							<form className='buy-now-modal-contact-form__product'>
+								<div className='buy-now-form-personal-information__product'>
+									<label
+										className='buy-now-per-info__product'
+										htmlFor='user-first-name'
+									>
+										Personal Information
+									</label>
+									<div className='buy-now-per-info-name-div__product'>
+										<input
+											className='buy-now-per-info-name-name__product'
+											id='user-first-name'
+											type='text'
+											name='user-first-name'
+											required
+											pattern="[a-zA-Zа-яА-ЯїЇіІєЄ']+"
+											placeholder='Name'
+										/>
+										<input
+											className='buy-now-per-info-name-name__product'
+											id='user-last-name'
+											type='text'
+											name='user-last-name'
+											required
+											pattern="[a-zA-Zа-яА-ЯїЇіІєЄ']+"
+											placeholder='Surname'
+										/>
+									</div>
+								</div>
+
+								<div class='buy-now-form-personal-information__product'>
+									<label class='buy-now-per-info__product' for='user-email'>
+										Email
+									</label>
+									<div class='buy-now-contact-form-input-wraper__product'>
+										<input
+											class='buy-now-per-info-name-name__product'
+											type='email'
+											name='user-email'
+											required
+											id='user-email'
+											pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
+											placeholder='Email'
+										/>
+									</div>
+								</div>
+
+								<div class='buy-now-form-personal-information__product'>
+									<label class='buy-now-per-info__product' for='user-tel'>
+										Phone number
+									</label>
+									<div class='buy-now-contact-form-input-wraper__product'>
+										<span class='buy-now-div-for-icon__product'>
+											<span class='buy-now-form-class-span__product'>+380</span>
+										</span>
+										<input
+											class='buy-now-per-info-name-tel__product'
+											type='tel'
+											id='user-tel'
+											name='user_tel'
+											required
+											pattern='[0-9]{3}-[0-9]{2}-[0-9]{2}'
+											title='xxx-xx-xx'
+											placeholder='Phone number'
+										/>
+									</div>
+								</div>
+
+								<div class='buy-now-form-personal-information__product'>
+									<label
+										class='buy-now-per-info'
+										for='user-bank-account__product'
+									>
+										Card number
+									</label>
+									<div class='buy-now-contact-form-input-wraper__product'>
+										<input
+											class='buy-now-per-info-name-name__product'
+											type='text'
+											id='user-bank-account'
+											name='user_bank_account'
+											required
+											pattern='[0-9]{16}'
+											title='Enter card'
+											placeholder='Enter card'
+										/>
+										<div
+											aria-label='bank-icon'
+											width='32'
+											height='21'
+											class='buy-now-icon-bank__product'
+										>
+											<img src='../imgs/section.png' alt='' />
+										</div>
+									</div>
+								</div>
+
+								<div class='buy-now-form-comment__product'>
+									<label class='buy-now-per-info__product' for='user-comment'>
+										Comment
+									</label>
+									<textarea
+										class='buy-now-contact-from-message__product'
+										name='user-comment'
+										id='user-comment'
+										placeholder='Enter text'
+									></textarea>
+								</div>
+
+								{/* Add other form fields here */}
+								<button
+									type='submit'
+									className='buy-now-form-btn-submit__product'
+								>
+									<span className='buy-now-form-btn-submit-span__product'>
+										Submit
+									</span>
+								</button>
+							</form>
+						</dialog>
+					)}
+				</div>
+			</motion.section>
+		</>
+	)
 }
- 
-export default SectionOrder;
 
+export default SectionOrder
