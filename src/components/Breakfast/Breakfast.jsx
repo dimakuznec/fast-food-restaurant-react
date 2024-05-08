@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
-import imgFood10 from './../../images/food-list-10.jpg'
-import imgFood11 from './../../images/food-list-11.jpg'
-import imgFood3 from './../../images/food-list-3.jpg'
-import imgFood5 from './../../images/food-list-5.jpg'
-import imgFood6 from './../../images/food-list-6.jpg'
-import imgFood7 from './../../images/food-list-7.jpg'
-import imgFood8 from './../../images/food-list-8.jpg'
-import imgFood9 from './../../images/food-list-9.jpg'
+import BurgerKing1 from './../../images/Burger-King1.jpg'
+import BurgerKing2 from './../../images/Burger-King2.jpg'
+import BurgerKing3 from './../../images/Burger-King3.jpg'
+import BurgerKing4 from './../../images/Burger-King4.jpg'
+import BurgerKing5 from './../../images/Burger-King5.jpg'
+import BurgerKing6 from './../../images/Burger-King6.jpg'
+import BurgerKing7 from './../../images/Burger-King7.jpg'
+import BurgerKing8 from './../../images/Burger-King8.jpg'
 import './breakfast.css'
 
 const Breakfast = () => {
@@ -15,56 +15,56 @@ const Breakfast = () => {
 
 	const products = [
 		{
-			image: imgFood3,
+			image: BurgerKing1,
 			title: 'Burger King',
 			description: 'Together with McDonald’s, Burger King.',
 			price: '$4',
 			oldPrice: '$6',
 		},
 		{
-			image: imgFood5,
+			image: BurgerKing2,
 			title: 'Burger King',
 			description: 'Together with McDonald’s, Burger King.',
 			price: '$4',
 			oldPrice: '$6',
 		},
 		{
-			image: imgFood6,
+			image: BurgerKing3,
 			title: 'Burger King',
 			description: 'Together with McDonald’s, Burger King.',
 			price: '$4',
 			oldPrice: '$6',
 		},
 		{
-			image: imgFood7,
+			image: BurgerKing4,
 			title: 'Burger King',
 			description: 'Together with McDonald’s, Burger King.',
 			price: '$4',
 			oldPrice: '$6',
 		},
 		{
-			image: imgFood8,
+			image: BurgerKing5,
 			title: 'Burger King',
 			description: 'Together with McDonald’s, Burger King.',
 			price: '$4',
 			oldPrice: '$6',
 		},
 		{
-			image: imgFood9,
+			image: BurgerKing6,
 			title: 'Burger King',
 			description: 'Together with McDonald’s, Burger King.',
 			price: '$4',
 			oldPrice: '$6',
 		},
 		{
-			image: imgFood10,
+			image: BurgerKing7,
 			title: 'Burger King',
 			description: 'Together with McDonald’s, Burger King.',
 			price: '$4',
 			oldPrice: '$6',
 		},
 		{
-			image: imgFood11,
+			image: BurgerKing8,
 			title: 'Burger King',
 			description: 'Together with McDonald’s, Burger King.',
 			price: '$4',

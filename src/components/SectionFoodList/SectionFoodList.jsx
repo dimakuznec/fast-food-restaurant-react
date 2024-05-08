@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
+import BurgerKing1 from './../../images/Burger-King1.jpg'
 import DairyQueen from './../../images/Dairy-Queen.jpg'
 import PapaJohns from './../../images/Papa-John’s.jpg'
-import imgFood3 from './../../images/food-list-3.jpg'
-import imgFood4 from './../../images/food-list-4.jpg'
+import foodlist4 from './../../images/food-list-4.jpg'
 
 import './SectionFoodList.css'
 
@@ -47,7 +47,7 @@ const SectionFoodList = () => {
 						</div>
 					</div>
 					<div className='food-list__card'>
-						<img src={imgFood3} alt='' className='food-list__img' />
+						<img src={BurgerKing1} alt='' className='food-list__img' />
 						<div className='food-list__text-wrapper'>
 							<h4 className='food-list__title'>Bon Au Pain</h4>
 							<p className='food-list__desc'>
@@ -56,7 +56,7 @@ const SectionFoodList = () => {
 						</div>
 					</div>
 					<div className='food-list__card'>
-						<img src={imgFood4} alt='' className='food-list__img' />
+						<img src={foodlist4} alt='' className='food-list__img' />
 						<div className='food-list__text-wrapper'>
 							<h4 className='food-list__title'>Pizza Hut.</h4>
 							<p className='food-list__desc'>

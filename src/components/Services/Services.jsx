@@ -1,6 +1,14 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import Pizza4 from './../../images//Pizza-Hut-4.jpg'
+import BurgerKing1 from './../../images/Burger-King1.jpg'
+import BurgerKing2 from './../../images/Burger-King2.jpg'
+import BurgerKing3 from './../../images/Burger-King3.jpg'
+import BurgerKing4 from './../../images/Burger-King4.jpg'
+import BurgerKing5 from './../../images/Burger-King5.jpg'
+import BurgerKing6 from './../../images/Burger-King6.jpg'
+import BurgerKing7 from './../../images/Burger-King7.jpg'
+import BurgerKing8 from './../../images/Burger-King8.jpg'
 import DairyQueenLunce1 from './../../images/Dairy-Queen1.jpg'
 import DairyQueenLunce2 from './../../images/Dairy-Queen2.jpg'
 import DairyQueenLunce3 from './../../images/Dairy-Queen3.jpg'
@@ -16,15 +24,6 @@ import PapaJohns6 from './../../images/Papa-John’s6.jpg'
 import Pizza1 from './../../images/Pizza-Hut-1.jpg'
 import Pizza2 from './../../images/Pizza-Hut-2.jpg'
 import Pizza3 from './../../images/Pizza-Hut-3.jpg'
-import imgFood10 from './../../images/food-list-10.jpg'
-import imgFood11 from './../../images/food-list-11.jpg'
-import imgFood3 from './../../images/food-list-3.jpg'
-import imgFood4 from './../../images/food-list-4.jpg'
-import imgFood5 from './../../images/food-list-5.jpg'
-import imgFood6 from './../../images/food-list-6.jpg'
-import imgFood7 from './../../images/food-list-7.jpg'
-import imgFood8 from './../../images/food-list-8.jpg'
-import imgFood9 from './../../images/food-list-9.jpg'
 import './services.css'
 
 const Services = () => {
@@ -46,7 +45,7 @@ const Services = () => {
 		>
 			<div className='container-Breakfast'>
 				<div className='food-list__card food-list__card-Breakfast'>
-					<img src={imgFood3} alt='' className='food-list__img' />
+					<img src={BurgerKing1} alt='' className='food-list__img' />
 					<div className='food-list__text-wrapper'>
 						<h4 className='food-list__title'>Bon Au Pain</h4>
 						<p className='food-list__desc'>
@@ -61,7 +60,7 @@ const Services = () => {
 				</div>
 
 				<div className='food-list__card food-list__card-Breakfast'>
-					<img src={imgFood5} alt='' className='food-list__img' />
+					<img src={BurgerKing2} alt='' className='food-list__img' />
 					<div className='food-list__text-wrapper'>
 						<h4 className='food-list__title'>Bon Au Pain</h4>
 						<p className='food-list__desc'>
@@ -76,7 +75,7 @@ const Services = () => {
 				</div>
 
 				<div className='food-list__card food-list__card-Breakfast'>
-					<img src={imgFood6} alt='' className='food-list__img' />
+					<img src={BurgerKing3} alt='' className='food-list__img' />
 					<div className='food-list__text-wrapper'>
 						<h4 className='food-list__title'>Bon Au Pain</h4>
 						<p className='food-list__desc'>
@@ -91,7 +90,7 @@ const Services = () => {
 				</div>
 
 				<div className='food-list__card food-list__card-Breakfast'>
-					<img src={imgFood7} alt='' className='food-list__img' />
+					<img src={BurgerKing4} alt='' className='food-list__img' />
 					<div className='food-list__text-wrapper'>
 						<h4 className='food-list__title'>Bon Au Pain</h4>
 						<p className='food-list__desc'>
@@ -106,7 +105,7 @@ const Services = () => {
 				</div>
 
 				<div className='food-list__card food-list__card-Breakfast'>
-					<img src={imgFood8} alt='' className='food-list__img' />
+					<img src={BurgerKing5} alt='' className='food-list__img' />
 					<div className='food-list__text-wrapper'>
 						<h4 className='food-list__title'>Bon Au Pain</h4>
 						<p className='food-list__desc'>
@@ -121,7 +120,7 @@ const Services = () => {
 				</div>
 
 				<div className='food-list__card food-list__card-Breakfast'>
-					<img src={imgFood9} alt='' className='food-list__img' />
+					<img src={BurgerKing6} alt='' className='food-list__img' />
 					<div className='food-list__text-wrapper'>
 						<h4 className='food-list__title'>Bon Au Pain</h4>
 						<p className='food-list__desc'>
@@ -136,7 +135,7 @@ const Services = () => {
 				</div>
 
 				<div className='food-list__card food-list__card-Breakfast'>
-					<img src={imgFood10} alt='' className='food-list__img' />
+					<img src={BurgerKing7} alt='' className='food-list__img' />
 					<div className='food-list__text-wrapper'>
 						<h4 className='food-list__title'>Bon Au Pain</h4>
 						<p className='food-list__desc'>
@@ -151,7 +150,7 @@ const Services = () => {
 				</div>
 
 				<div className='food-list__card food-list__card-Breakfast'>
-					<img src={imgFood11} alt='' className='food-list__img' />
+					<img src={BurgerKing8} alt='' className='food-list__img' />
 					<div className='food-list__text-wrapper'>
 						<h4 className='food-list__title'>Bon Au Pain</h4>
 						<p className='food-list__desc'>
@@ -271,7 +270,7 @@ const Services = () => {
 				</div>
 
 				<div className='food-list__card food-list__card-Dinner'>
-					<img src={imgFood4} alt='' className='food-list__img' />
+					<img src={BurgerKing1} alt='' className='food-list__img' />
 					<div className='food-list__text-wrapper'>
 						<h4 className='food-list__title'>Bon Au Pain</h4>
 						<p className='food-list__desc'>
