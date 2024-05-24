@@ -24,7 +24,7 @@ function Header() {
 			<header className='header'>
 				<div className='container'>
 					<div className='header__body'>
-						<NavLink to='#' className='header__logo'>
+						<NavLink to='Home' className='header__logo'>
 							<img src={logoImg} alt='logo' />
 						</NavLink>
 						<button
