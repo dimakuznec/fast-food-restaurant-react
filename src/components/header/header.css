@@ -18,10 +18,11 @@
 	height: 100%;
 	background-color: rgb(49, 47, 48);
 	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-	z-index: 2;
+	/* z-index: 2; */
 }
 
 .container {
+	position: relative;
 }
 .header__body {
 	position: relative;
@@ -83,6 +84,140 @@
 	color: #f6762c;
 }
 
+.cart__img__button {
+	position: relative;
+	background: transparent;
+	border: none;
+	transition: color 500ms ease;
+	margin-left: 640px;
+}
+
+.cart__img__button:hover,
+.cart__img__button.active {
+	background-color: #f6762c;
+	border-radius: 10px;
+}
+
+.shop_cart {
+	position: absolute;
+	top: 55px;
+	right: 250px;
+	width: 342px;
+	overflow-y: auto;
+	height: 250px;
+	overflow-x: hidden;
+
+	background-color: rgb(49, 47, 48);
+	-webkit-box-shadow: 4px 5px 19px -7px #fffcfe;
+	box-shadow: 4px 5px 19px -7px #fffcfe;
+	transition: color 500ms ease;
+	border-radius: 20px;
+	padding: 20px;
+}
+
+.shop_cart .item {
+	width: 100%;
+	float: left;
+	margin-right: 20px;
+}
+
+.shop_cart .item .food-list__img {
+	width: 162px;
+
+	float: left;
+	margin-right: 20px;
+	padding-top: 20px;
+	border-radius: 10px;
+}
+
+.total-price {
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+.clear-cart {
+	display: block;
+	margin-top: 10px;
+	background: #ff4d4d;
+	color: #fff;
+	border: none;
+	padding: 5px 10px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+.clear-cart,
+.confirm-order {
+	display: block;
+	margin-top: 10px;
+	background: #ff4d4d;
+	color: #fff;
+	border: none;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.confirm-order {
+	background: #4caf50;
+	border-radius: 5px;
+}
+
+.order-confirmation {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #4caf50;
+	color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	z-index: 1002;
+}
+
+.check-icon {
+	font-size: 2rem;
+	animation: checkmark 0.5s ease-in-out;
+}
+
+@keyframes checkmark {
+	0% {
+		transform: scale(0);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+.error-icon {
+	font-size: 2rem;
+	animation: errorShake 0.5s ease-in-out;
+}
+
+@keyframes errorShake {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(-10px);
+	}
+	50% {
+		transform: translateX(10px);
+	}
+	75% {
+		transform: translateX(-10px);
+	}
+}
+
+.order-confirmation p {
+	margin: 0;
+}
+
+.order-confirmation.error {
+	background: #ff4d4d;
+}
+
 @media (max-width: 1200px) {
 	.header {
 		flex-wrap: wrap;
@@ -94,6 +229,14 @@
 	.header-menu {
 		order: 1;
 		flex-basis: 100%;
+	}
+
+	.cart__img__button {
+		position: relative;
+		background: transparent;
+		border: none;
+		transition: color 500ms ease;
+		margin-left: 430px;
 	}
 }
 
@@ -187,6 +330,31 @@
 	.header__link {
 		font-size: 24px;
 	}
+
+	.cart__img__button {
+		position: relative;
+		background: transparent;
+		border: none;
+		transition: color 500ms ease;
+		margin-left: auto;
+	}
+
+	.shop_cart {
+		position: absolute;
+		top: 55px;
+		right: 145px;
+		width: 342px;
+		overflow-y: auto;
+		height: 250px;
+		overflow-x: hidden;
+
+		background-color: rgb(49, 47, 48);
+		-webkit-box-shadow: 4px 5px 19px -7px #fffcfe;
+		box-shadow: 4px 5px 19px -7px #fffcfe;
+		transition: color 500ms ease;
+		border-radius: 20px;
+		padding: 20px;
+	}
 }
 
 @media (max-width: 480px) {
@@ -202,7 +370,40 @@
 		transition: all 0.3s ease 0s;
 		overflow: auto;
 	}
+
+	.shop_cart {
+		position: absolute;
+		top: 55px;
+		right: -22px;
+		width: 342px;
+		overflow-y: auto;
+		height: 250px;
+		overflow-x: hidden;
+
+		background-color: rgb(49, 47, 48);
+		-webkit-box-shadow: 4px 5px 19px -7px #fffcfe;
+		box-shadow: 4px 5px 19px -7px #fffcfe;
+		transition: color 500ms ease;
+		border-radius: 20px;
+		padding: 20px;
+	}
 }
 
 @media (max-width: 320px) {
+	.shop_cart {
+		position: absolute;
+		top: 55px;
+		right: -17px;
+		width: 275px;
+		overflow-y: auto;
+		height: 250px;
+		overflow-x: hidden;
+
+		background-color: rgb(49, 47, 48);
+		-webkit-box-shadow: 4px 5px 19px -7px #fffcfe;
+		box-shadow: 4px 5px 19px -7px #fffcfe;
+		transition: color 500ms ease;
+		border-radius: 20px;
+		padding: 20px;
+	}
 }
