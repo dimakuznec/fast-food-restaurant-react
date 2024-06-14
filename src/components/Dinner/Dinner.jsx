@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
-import React from 'react'
-import Pizza4 from './../../images//Pizza-Hut-4.jpg'
-import Pizza2 from './../../images/Pizza-Hut-2.jpg'
-import Pizza3 from './../../images/Pizza-Hut-3.jpg'
-import imgFood4 from './../../images/food-list-4.jpg'
+import React, { Component } from 'react'
+import DinnerImage1 from './../../images/Pizza-Hut-1.jpg'
+import DinnerImage2 from './../../images/Pizza-Hut-2.jpg'
+import DinnerImage3 from './../../images/Pizza-Hut-3.jpg'
+import DinnerImage4 from './../../images/Pizza-Hut-4.jpg'
 import './dinner.css'
 
-class Dinner extends React.Component {
+class Dinner extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -15,36 +15,40 @@ class Dinner extends React.Component {
 			orders: [],
 			itemsProduct: [
 				{
-					id: 1,
-					image: Pizza4,
-					title: 'Pizza Hut',
-					description: 'Although the Pizza Hut Menu Prices.',
-					price: '$3',
-					oldPrice: '$7',
+					id: 7,
+					image: DinnerImage1,
+					title: 'Steak Dinner',
+					description: 'Juicy steak with mashed potatoes.',
+					price: '$15',
+					oldPrice: '$20',
+					category: 'dinner',
 				},
 				{
-					id: 2,
-					image: Pizza2,
-					title: 'Pizza Hut',
-					description: 'Although the Pizza Hut Menu Prices.',
-					price: '$3',
-					oldPrice: '$7',
+					id: 8,
+					image: DinnerImage2,
+					title: 'Pasta Dinner',
+					description: 'Creamy Alfredo pasta.',
+					price: '$12',
+					oldPrice: '$16',
+					category: 'dinner',
 				},
 				{
-					id: 3,
-					image: Pizza3,
-					title: 'Pizza Hut',
-					description: 'Although the Pizza Hut Menu Prices.',
-					price: '$3',
-					oldPrice: '$7',
+					id: 9,
+					image: DinnerImage3,
+					title: 'Seafood Dinner',
+					description: 'Grilled salmon with veggies.',
+					price: '$18',
+					oldPrice: '$22',
+					category: 'dinner',
 				},
 				{
-					id: 4,
-					image: imgFood4,
-					title: 'Pizza Hut',
-					description: 'Although the Pizza Hut Menu Prices.',
-					price: '$3',
-					oldPrice: '$7',
+					id: 10,
+					image: DinnerImage4,
+					title: 'Chicken Dinner',
+					description: 'Grilled chicken with salad.',
+					price: '$14',
+					oldPrice: '$18',
+					category: 'dinner',
 				},
 			],
 		}
@@ -73,11 +77,24 @@ class Dinner extends React.Component {
 	}
 
 	addToOrder = (item, count) => {
+		if (count === 0) return
+
 		const orderItem = { ...item, count: count }
 		this.setState(
-			prevState => ({
-				orders: [...prevState.orders, orderItem],
-			}),
+			prevState => {
+				const existingItemIndex = prevState.orders.findIndex(
+					orderItem =>
+						orderItem.id === item.id && orderItem.category === item.category
+				)
+
+				if (existingItemIndex >= 0) {
+					const updatedOrders = [...prevState.orders]
+					updatedOrders[existingItemIndex].count += count
+					return { orders: updatedOrders }
+				} else {
+					return { orders: [...prevState.orders, orderItem] }
+				}
+			},
 			() => {
 				this.props.onAdd(orderItem)
 			}

@@ -1,15 +1,14 @@
 import { motion } from 'framer-motion'
-import React from 'react'
-import PapaJohns1 from './../../images/Papa-John’s1.jpg'
-import PapaJohns2 from './../../images/Papa-John’s2.jpg'
-import PapaJohns3 from './../../images/Papa-John’s3.jpg'
-import PapaJohns4 from './../../images/Papa-John’s4.jpg'
-import PapaJohns5 from './../../images/Papa-John’s5.jpg'
-import PapaJohns6 from './../../images/Papa-John’s6.jpg'
-
+import React, { Component } from 'react'
+import PapaJohnsImage1 from './../../images/Papa-John’s1.jpg'
+import PapaJohnsImage2 from './../../images/Papa-John’s2.jpg'
+import PapaJohnsImage3 from './../../images/Papa-John’s3.jpg'
+import PapaJohnsImage4 from './../../images/Papa-John’s4.jpg'
+import PapaJohnsImage5 from './../../images/Papa-John’s5.jpg'
+import PapaJohnsImage6 from './../../images/Papa-John’s6.jpg'
 import './papaJohn’s.css'
 
-class PapaJohns extends React.Component {
+class PapaJohns extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -18,46 +17,58 @@ class PapaJohns extends React.Component {
 			orders: [],
 			itemsProduct: [
 				{
-					image: PapaJohns1,
-					title: 'Papa John’s',
-					description: 'Papa John’s is one of the most popular fast-food.',
-					price: '$4',
-					oldPrice: '$6',
+					id: 19,
+					image: PapaJohnsImage1,
+					title: 'Pepperoni Pizza',
+					description: 'Classic Pepperoni pizza.',
+					price: '$12',
+					oldPrice: '$15',
+					category: 'papajohns',
 				},
 				{
-					image: PapaJohns2,
-					title: 'Papa John’s',
-					description: 'Papa John’s is one of the most popular fast-food.',
-					price: '$4',
-					oldPrice: '$6',
+					id: 20,
+					image: PapaJohnsImage2,
+					title: 'Veggie Pizza',
+					description: 'Loaded with fresh veggies.',
+					price: '$10',
+					oldPrice: '$13',
+					category: 'papajohns',
 				},
 				{
-					image: PapaJohns3,
-					title: 'Papa John’s',
-					description: 'Papa John’s is one of the most popular fast-food.',
-					price: '$4',
-					oldPrice: '$6',
+					id: 21,
+					image: PapaJohnsImage3,
+					title: 'Cheese Pizza',
+					description: 'Cheesy and delicious.',
+					price: '$11',
+					oldPrice: '$14',
+					category: 'papajohns',
 				},
 				{
-					image: PapaJohns4,
-					title: 'Papa John’s',
-					description: 'Papa John’s is one of the most popular fast-food.',
-					price: '$4',
-					oldPrice: '$6',
+					id: 22,
+					image: PapaJohnsImage4,
+					title: 'Hawaiian Pizza',
+					description: 'Sweet and savory.',
+					price: '$13',
+					oldPrice: '$16',
+					category: 'papajohns',
 				},
 				{
-					image: PapaJohns5,
-					title: 'Papa John’s',
-					description: 'Papa John’s is one of the most popular fast-food.',
-					price: '$4',
-					oldPrice: '$6',
+					id: 23,
+					image: PapaJohnsImage5,
+					title: 'BBQ Chicken Pizza',
+					description: 'Tangy BBQ sauce with chicken.',
+					price: '$14',
+					oldPrice: '$17',
+					category: 'papajohns',
 				},
 				{
-					image: PapaJohns6,
-					title: 'Papa John’s',
-					description: 'Papa John’s is one of the most popular fast-food.',
-					price: '$4',
-					oldPrice: '$6',
+					id: 24,
+					image: PapaJohnsImage6,
+					title: 'Supreme Pizza',
+					description: 'Loaded with toppings.',
+					price: '$15',
+					oldPrice: '$18',
+					category: 'papajohns',
 				},
 			],
 		}
@@ -86,11 +97,24 @@ class PapaJohns extends React.Component {
 	}
 
 	addToOrder = (item, count) => {
+		if (count === 0) return
+
 		const orderItem = { ...item, count: count }
 		this.setState(
-			prevState => ({
-				orders: [...prevState.orders, orderItem],
-			}),
+			prevState => {
+				const existingItemIndex = prevState.orders.findIndex(
+					orderItem =>
+						orderItem.id === item.id && orderItem.category === item.category
+				)
+
+				if (existingItemIndex >= 0) {
+					const updatedOrders = [...prevState.orders]
+					updatedOrders[existingItemIndex].count += count
+					return { orders: updatedOrders }
+				} else {
+					return { orders: [...prevState.orders, orderItem] }
+				}
+			},
 			() => {
 				this.props.onAdd(orderItem)
 			}

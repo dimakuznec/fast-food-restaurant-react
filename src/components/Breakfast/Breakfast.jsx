@@ -15,10 +15,11 @@ class Breakfast extends React.Component {
 		super(props)
 		this.state = {
 			formActive: false,
-			counts: new Array(6).fill(0),
+			counts: new Array(8).fill(0),
 			orders: [],
 			itemsProduct: [
 				{
+					id: 11,
 					image: BurgerKing1,
 					title: 'Burger King',
 					description: 'Together with McDonald’s, Burger King.',
@@ -26,6 +27,7 @@ class Breakfast extends React.Component {
 					oldPrice: '$6',
 				},
 				{
+					id: 12,
 					image: BurgerKing2,
 					title: 'Burger King',
 					description: 'Together with McDonald’s, Burger King.',
@@ -33,6 +35,7 @@ class Breakfast extends React.Component {
 					oldPrice: '$6',
 				},
 				{
+					id: 13,
 					image: BurgerKing3,
 					title: 'Burger King',
 					description: 'Together with McDonald’s, Burger King.',
@@ -40,6 +43,7 @@ class Breakfast extends React.Component {
 					oldPrice: '$6',
 				},
 				{
+					id: 14,
 					image: BurgerKing4,
 					title: 'Burger King',
 					description: 'Together with McDonald’s, Burger King.',
@@ -47,6 +51,7 @@ class Breakfast extends React.Component {
 					oldPrice: '$6',
 				},
 				{
+					id: 15,
 					image: BurgerKing5,
 					title: 'Burger King',
 					description: 'Together with McDonald’s, Burger King.',
@@ -54,6 +59,7 @@ class Breakfast extends React.Component {
 					oldPrice: '$6',
 				},
 				{
+					id: 16,
 					image: BurgerKing6,
 					title: 'Burger King',
 					description: 'Together with McDonald’s, Burger King.',
@@ -61,6 +67,7 @@ class Breakfast extends React.Component {
 					oldPrice: '$6',
 				},
 				{
+					id: 17,
 					image: BurgerKing7,
 					title: 'Burger King',
 					description: 'Together with McDonald’s, Burger King.',
@@ -68,6 +75,7 @@ class Breakfast extends React.Component {
 					oldPrice: '$6',
 				},
 				{
+					id: 18,
 					image: BurgerKing8,
 					title: 'Burger King',
 					description: 'Together with McDonald’s, Burger King.',
@@ -101,11 +109,23 @@ class Breakfast extends React.Component {
 	}
 
 	addToOrder = (item, count) => {
+		if (count === 0) return
+
 		const orderItem = { ...item, count: count }
 		this.setState(
-			prevState => ({
-				orders: [...prevState.orders, orderItem],
-			}),
+			prevState => {
+				const existingItemIndex = prevState.orders.findIndex(
+					orderItem => orderItem.id === item.id
+				)
+
+				if (existingItemIndex >= 0) {
+					const updatedOrders = [...prevState.orders]
+					updatedOrders[existingItemIndex].count += count
+					return { orders: updatedOrders }
+				} else {
+					return { orders: [...prevState.orders, orderItem] }
+				}
+			},
 			() => {
 				this.props.onAdd(orderItem)
 			}

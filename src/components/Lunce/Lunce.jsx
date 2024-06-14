@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { Component } from 'react'
 import DairyQueenLunce1 from './../../images/Dairy-Queen1.jpg'
 import DairyQueenLunce2 from './../../images/Dairy-Queen2.jpg'
 import DairyQueenLunce3 from './../../images/Dairy-Queen3.jpg'
@@ -8,7 +8,7 @@ import DairyQueenLunce5 from './../../images/Dairy-Queen5.jpg'
 import DairyQueenLunce6 from './../../images/Dairy-Queen6.jpg'
 import './lunce.css'
 
-class Lunce extends React.Component {
+class Lunce extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -23,6 +23,7 @@ class Lunce extends React.Component {
 					description: 'Dairy Queen is one of the biggest fast-food chains.',
 					price: '$4',
 					oldPrice: '$6',
+					category: 'lunce',
 				},
 				{
 					id: 2,
@@ -31,6 +32,7 @@ class Lunce extends React.Component {
 					description: 'Enjoy our delicious ice cream.',
 					price: '$3',
 					oldPrice: '$5',
+					category: 'lunce',
 				},
 				{
 					id: 3,
@@ -39,6 +41,7 @@ class Lunce extends React.Component {
 					description: 'A classic favorite for all ages.',
 					price: '$5',
 					oldPrice: '$7',
+					category: 'lunce',
 				},
 				{
 					id: 4,
@@ -47,6 +50,7 @@ class Lunce extends React.Component {
 					description: 'Try our new range of burgers.',
 					price: '$6',
 					oldPrice: '$8',
+					category: 'lunce',
 				},
 				{
 					id: 5,
@@ -55,6 +59,7 @@ class Lunce extends React.Component {
 					description: 'Fresh and tasty salads.',
 					price: '$4',
 					oldPrice: '$6',
+					category: 'lunce',
 				},
 				{
 					id: 6,
@@ -63,6 +68,7 @@ class Lunce extends React.Component {
 					description: 'Satisfy your sweet tooth with our desserts.',
 					price: '$2',
 					oldPrice: '$4',
+					category: 'lunce',
 				},
 			],
 		}
@@ -91,11 +97,24 @@ class Lunce extends React.Component {
 	}
 
 	addToOrder = (item, count) => {
+		if (count === 0) return
+
 		const orderItem = { ...item, count: count }
 		this.setState(
-			prevState => ({
-				orders: [...prevState.orders, orderItem],
-			}),
+			prevState => {
+				const existingItemIndex = prevState.orders.findIndex(
+					orderItem =>
+						orderItem.id === item.id && orderItem.category === item.category
+				)
+
+				if (existingItemIndex >= 0) {
+					const updatedOrders = [...prevState.orders]
+					updatedOrders[existingItemIndex].count += count
+					return { orders: updatedOrders }
+				} else {
+					return { orders: [...prevState.orders, orderItem] }
+				}
+			},
 			() => {
 				this.props.onAdd(orderItem)
 			}
